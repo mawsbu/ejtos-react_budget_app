@@ -14,7 +14,7 @@ export const AppReducer = (state, action) => {
             );
             total_budget = total_budget + action.payload.cost;
             action.type = "DONE";
-            if(total_budget <= state.budget) {
+            if(total_budget <= state.budget.value) {
                 total_budget = 0;
                 state.expenses.map((currentExp)=> {
                     if(currentExp.name === action.payload.name) {
