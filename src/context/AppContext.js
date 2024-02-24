@@ -1,3 +1,4 @@
+/* eslint-disable no-fallthrough */
 import React, { createContext, useReducer } from 'react';
 
 // 5. The reducer - this is used to update the state, based on the action
@@ -30,20 +31,20 @@ export const AppReducer = (state, action) => {
                     ...state
                 }
             }
-            case 'RED_EXPENSE':
-                const red_expenses = state.expenses.map((currentExp)=> {
-                    if (currentExp.name === action.payload.name && currentExp.cost - action.payload.cost >= 0) {
-                        currentExp.cost =  currentExp.cost - action.payload.cost;
-                        budget = state.budget + action.payload.cost
-                    }
-                    return currentExp
-                })
+        case 'RED_EXPENSE':
+            const red_expenses = state.expenses.map((currentExp)=> {
+                if (currentExp.name === action.payload.name && currentExp.cost - action.payload.cost >= 0) {
+                    currentExp.cost =  currentExp.cost - action.payload.cost;
+                    budget = state.budget + action.payload.cost
+                }
+                return currentExp
+            })
                 action.type = "DONE";
                 return {
                     ...state,
                     expenses: [...red_expenses],
                 };
-            case 'DELETE_EXPENSE':
+        case 'DELETE_EXPENSE':
             action.type = "DONE";
             state.expenses.map((currentExp)=> {
                 if (currentExp.name === action.payload) {
@@ -78,7 +79,8 @@ export const AppReducer = (state, action) => {
 
 // 1. Sets the initial state when the app loads
 const initialState = {
-    budget: 2000,
+    // budget: 2000,
+    budget: { value: 2000 },
     expenses: [
         { id: "Marketing", name: 'Marketing', cost: 50 },
         { id: "Finance", name: 'Finance', cost: 300 },
