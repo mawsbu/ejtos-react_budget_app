@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+.alert{
+  height: 70px;
+}
+select.form-select option {
+  background-color: #93e499 !important;
+  color: #fff !important;
+}
+.form-select, .input-group-text{
+  background-color: #93e499;
+  color: #fff;
+}
+.input-group-text{
+  border: none;
+}
+.form-select-sm, .input-group-text, input{
+  height: 35px;
+}
+.form-select{
+  border-left: none;
+}
