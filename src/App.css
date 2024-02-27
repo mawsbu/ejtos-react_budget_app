@@ -56,3 +56,12 @@ select.form-select option {
 .form-select{
   border-left: none;
 }
+.table .btn{
+  border-radius: 50%;
+  font-size: 28px;
+  height: 32px;
+  width: 32px;
+  padding: 0px !important;
+  line-height: 28px;
+  font-weight: bold;
+}
